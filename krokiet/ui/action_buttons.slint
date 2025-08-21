@@ -180,6 +180,18 @@ export component ActionButtons inherits HorizontalLayout {
         }
     }
 
+    hardlink_button := Button {
+        visible: lists_enabled;
+        height: parent.height;
+        enabled: base_buttons_may_be_available && self.visible && checked_anything;
+        text: self.visible && Settings.show_only_icons ? "" : Translations.hardlink_button_text;
+        icon: @image-url("../icons/krokiet_hardlink.svg");
+        colorize-icon: true;
+        clicked => {
+            show_hardlink_popup();
+        }
+    }
+
     Rectangle {
         horizontal-stretch: 0.5;
     }
